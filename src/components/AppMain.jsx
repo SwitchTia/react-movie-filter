@@ -2,26 +2,22 @@ import { moviesList } from "../assets/moviesList";
 
 function AppMain() {
 
-    // const moviesListWithId = [];
+    const moviesListWithId = moviesList.map((movie, index) => ({
+        ...movie,
+        id: index + 1,
+    }));
 
-    // moviesList.forEach((movie, index) => {
-    //     moviesListWithId.push({
-    //         ...movie,
-    //         id: index + 1,
-    //     });
-    // });
 
-    // moviesList = moviesListWithId;
-    // console.log(moviesList);
     return (
         <>
             <main>
                 <div className='container'>
                     <h1 className="py-20">Movies List</h1>
                     <ul>
-                        {moviesList.map((movie) => (
+                        {moviesListWithId.map((movie) => (
                             <li className="py-10" key={movie.id}>
                                 <h3>Title : {movie.title}</h3>
+                                <p>Id : {movie.id}</p>
                                 <p>Genre : {movie.genre}</p>
 
                             </li>
