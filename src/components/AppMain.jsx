@@ -30,7 +30,7 @@ function AppMain() {
 
         const newMovie = {
             id: movies.length > 0 ? movies[movies.length - 1].id + 1 : 1,
-            title: newMovie.trim(),
+            title: newTitle.trim(),
             genre: newGenre.trim(),
         };
         setMovies((current) => [...current, newMovie]);
@@ -85,7 +85,7 @@ function AppMain() {
 
                             <input
                                 value={newTitle}
-                                onChange={(event) => setNewMovie(event.target.value)}
+                                onChange={(event) => setNewTitle(event.target.value)}
                                 placeholder="Write your movie here"
                                 type="text"
                             />
@@ -96,7 +96,7 @@ function AppMain() {
 
                             <input
                                 value={newGenre}
-                                onChange={(event) => setNewMovie(event.target.value)}
+                                onChange={(event) => setNewGenre(event.target.value)}
                                 placeholder="Write movie's genre here"
                                 type="text"
                             />
