@@ -1,19 +1,35 @@
-
+import { moviesList } from "../assets/moviesList";
 
 function AppMain() {
 
+    // const moviesListWithId = [];
+
+    // moviesList.forEach((movie, index) => {
+    //     moviesListWithId.push({
+    //         ...movie,
+    //         id: index + 1,
+    //     });
+    // });
+
+    // moviesList = moviesListWithId;
+    // console.log(moviesList);
     return (
         <>
             <main>
                 <div className='container'>
-                    <h2>Product 1</h2>
-                    <h2>Product 2</h2>
-                 
+                    <h1>I miei task</h1>
+                    <ul>
+                        {moviesList.map((movie) => (
+                            <li key={movie.id}>
+                                <h3>Title : {movie.title}</h3>
+                                <p>Genre : {movie.genre}</p>
 
-                    <form >
+                            </li>
+                        ))}
+                    </ul>
 
 
-                    </form>
+
                 </div>
             </main>
         </>
