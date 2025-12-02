@@ -11,7 +11,9 @@ function AppMain() {
 
     const [search, setSearch] = useState("");
     const [filteredMovieList, setFilteredMovieList] = useState(moviesListWithId);
+    
     const [newMovie, setNewMovie] = useState("");
+    const [movies, setMovies] = useState(moviesListWithId);
 
     useEffect(() => {
         const newArray = moviesListWithId.filter((movie) =>
@@ -20,14 +22,15 @@ function AppMain() {
         setFilteredMovieList(newArray);
     }, [search]);
 
+
     function createNewMovie(event) {
         event.preventDefault();
         const newMovie = {
-            id: posts.length > 0 ? posts[posts.length - 1].id + 1 : 1,
+            id: movies.length > 0 ? movies[movies.length - 1].id + 1 : 1,
             title: newMovie,
         };
-        setPosts((current) => [...current, nuovoPost]);
-        setNewPost("");
+        setMovies((current) => [...current, newMovie]);
+        setNewMovie("");
     }
 
     return (
@@ -35,7 +38,7 @@ function AppMain() {
             <main>
 
                 <div className='container'>
-                    <div className="flex py-20">
+                    <div className="flex">
                         <span class="mx-10">
                             <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.242 1.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
@@ -51,7 +54,7 @@ function AppMain() {
                     </div>
 
                     <section>
-                        <h2 >Movies List</h2>
+                        <h2 className="py-20">Movies List</h2>
                         {filteredMovieList.map((movie) => (
                             <div className="card py-20" key={movie.id}>
                                 <h3>Title : {movie.title}</h3>
