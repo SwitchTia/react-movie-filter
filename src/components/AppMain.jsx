@@ -11,7 +11,7 @@ function AppMain() {
 
     const [search, setSearch] = useState("");
     const [filteredMovieList, setFilteredMovieList] = useState(moviesListWithId);
-    
+
     const [newMovie, setNewMovie] = useState("");
     const [movies, setMovies] = useState(moviesListWithId);
 
@@ -33,12 +33,15 @@ function AppMain() {
         setNewMovie("");
     }
 
+    function deleteMovie(id) {
+        setMovies((current) => current.filter((movies) => movies.id !== id));
+    }
+
     return (
         <>
             <main>
-
                 <div className='container'>
-                    <div className="flex">
+                    <div className="flex-center">
                         <span class="mx-10">
                             <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.242 1.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
@@ -53,24 +56,28 @@ function AppMain() {
                         />
                     </div>
 
-                    <section>
-                        <h2 className="py-20">Movies List</h2>
-                        {filteredMovieList.map((movie) => (
-                            <div className="card py-20" key={movie.id}>
-                                <h3>Title : {movie.title}</h3>
-                                {/* <p>Id : {movie.id}</p> */}
-                                <p>Genre : {movie.genre}</p>
+                    <section className="py-40">
 
+                        {filteredMovieList.map((movie) => (
+                            <div className="card py-20 flex-around" key={movie.id}>
+                                <div>
+                                    <h3>Title : {movie.title}</h3>
+                                    {/* <p>Id : {movie.id}</p> */}
+                                    <p>Genre : {movie.genre}</p>
+                                </div>
+                                <button onClick={deleteMovie} className="btn">Delete movie</button>
                             </div>
                         ))}
+
                     </section>
 
                     <section>
-                        <h3 className="py-20">Add your movie here</h3>
-                        <form onSubmit={createNewMovie} action="">
+                        <h3 className="py-20">Add your movie here:</h3>
+                        <form className="flex-center py-20" onSubmit={createNewMovie} action="">
                             <label className="mx-10" htmlFor="">
-                                Title
+                                Title:
                             </label>
+
                             <input
                                 value={newMovie}
                                 onChange={(event) => setNewMovie(event.target.value)}
@@ -78,10 +85,23 @@ function AppMain() {
                                 type="text"
                             />
 
+                            <label className="mx-10" htmlFor="">
+                                Genre:
+                            </label>
+
+                            <input
+                                value={newMovie}
+                                onChange={(event) => setNewMovie(event.target.value)}
+                                placeholder="Write movie's genre here"
+                                type="text"
+                            />
                             <button type="submit" className="btn ">
-                                Add movie
+                                Add
                             </button>
+
                         </form>
+
+
                     </section>
                 </div>
             </main>

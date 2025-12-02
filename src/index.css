@@ -23,7 +23,7 @@ main {
 .card {
     background-color: azure;
     border-radius: 10px;
-    padding-left: 20px;
+    
     margin-bottom: 10px;
 }
 .mx-10 {
@@ -47,9 +47,15 @@ main {
 }
 
 
-.flex {
+.flex-around {
   display: flex;
-  justify-content: center;
+  justify-content:space-around;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content:center;
   align-items: center;
 }
 
