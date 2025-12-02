@@ -17,10 +17,10 @@ function AppMain() {
         <>
             <main>
                 <div className='container'>
-                    <h1>I miei task</h1>
+                    <h1 className="py-20">Movies List</h1>
                     <ul>
                         {moviesList.map((movie) => (
-                            <li key={movie.id}>
+                            <li className="py-10" key={movie.id}>
                                 <h3>Title : {movie.title}</h3>
                                 <p>Genre : {movie.genre}</p>
 
