@@ -19,6 +19,13 @@ main {
   max-width: 900px;
   margin: 30px auto;
 }
+
+.card {
+    background-color: azure;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
 .mx-10 {
   margin-left: 10px;
   margin-right: 10px;

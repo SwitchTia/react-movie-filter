@@ -12,20 +12,18 @@ function AppMain() {
         <>
             <main>
                 <div className='container'>
+
                     <h1 className="py-20">Movies List</h1>
-                    <ul>
+                    <section>
                         {moviesListWithId.map((movie) => (
-                            <li className="py-10" key={movie.id}>
+                            <div className="card py-10" key={movie.id}>
                                 <h3>Title : {movie.title}</h3>
                                 <p>Id : {movie.id}</p>
                                 <p>Genre : {movie.genre}</p>
 
-                            </li>
+                            </div>
                         ))}
-                    </ul>
-
-
-
+                    </section>
                 </div>
             </main>
         </>
